@@ -1,12 +1,17 @@
 Đây là bài tập dành cho sinh viên làm quen với C++ và phần mềm NS-3, bài tập về C++ làm trước.
 1. Lập trình C++ trên Ubuntu:
    - Mở termnal bằng tổ hợp phím Ctrl+Alt+t và chạy lệnh sau để cài đặt cái gói cần thiết:
+
 		sudo apt install build-essential g++
    - Biên dịch file mã nguồn:
+
     	g++ tên-file-đầu-vào -o tên-file-đầu-ra
+
      Ví dụ: g++ example.cc -o example
    - Chạy file vừa biên dịch:
+
    		./tên-file-đầu-ra
+
    	 Ví dụ: ./example
 2. Bài tập C++: đọc nội dung từ file
    - Cho file input.txt, file này bao gồm nhiều dòng, mỗi dòng bao gồm nhiều số, mỗi số phân biệt bởi ký tự space (dấu cách).
@@ -17,17 +22,25 @@
 		Trong mục này, phiên bản sử dụng là ns-3.27
 	- Giải nén file vừa tải về, thư-mục-chứa-waf có đường dẫn là: thư-mục-tải-ns3/ns-allinone-3.27/ns-3.27
 	- Cài đặt các gói cần thiết và biên dịch NS3
+
 		sudo apt-get install gcc g++ python python3
+
 		cd thư-mục-chứa-waf
+		
 		./waf configure --disable-tests --disable-examples --disable-python
+
 		./waf
 	- Các file chương trình NS-3 cần được đặt tại thư mục thư-mục-chứa-waf/scratch
 	- Cách chạy chương trình
+
 		./waf --run scratch/tên-file-không-có-phần-mở-rộng
+
 	 Ví dụ, để chạy file example.cc trong thư mục scratch, ta chạy lệnh sau:
+
 	  	./waf --run scratch/example
 	- Hướng dẫn sử dụng cho người mới bắt đầu: https://www.nsnam.org/docs/release/3.31/tutorial/ns-3-tutorial.pdf
 	- Tổng quan về các module: https://www.nsnam.org/docs/release/3.31/models/singlehtml/index.html
+
 		Chú ý mục: Internet Models (IP, TCP, Routing, UDP, Internet Applications)   
 	- Slide mạng máy tính: https://sites.google.com/site/setnguyenhuuthanh/home/mang-may-tinh
 4. Bài tập NS-3
@@ -86,7 +99,7 @@
 	   		+ Bỏ giao thức định tuyến OLSR trong file UAV_sensor.cc bằng cách xóa dòng 212 đến 217 và dòng 221 
 
 	   		+ Cho UAV di chuyển tới vị trí của từng sensor để thực hiện việc thu thập dữ liệu. Khi UAV đi đến vị trí của một sensor thì sensor này sẽ gửi 1 gói tin cho UAV (coi như sensor biết sự có mặt của UAV), nội dung gói tin bao gồm id và tọa độ của sensor. UAV làm như vậy cho đến khi thu thập dữ liệu của tất cả sensor.
-	   		
+
 5. Lưu ý khi sử dụng NS-3
 	- Tất cả mã nguồn của các module nằm tại thư mục đường-dẫn-tới-NS-3/ns-allinone-3.27/ns-3.27/src
 	- Trong mỗi module có 3 thư mục quan trọng là:
@@ -94,11 +107,17 @@
 		+ helper: chứa các helper để sử dụng module thuận tiện và dễ dàng hơn. Ví dụ, để cài Internet Stack cho các node, ta cần thực hiện nhiều thủ tục, các thủ tục này đã được viết sẵn trong InternetStackHelper (xem file UAV_sensor bên trên), do đó nếu sử dụng InternetStackHelper thì sẽ nhanh hơn.
 		+ examples: thư mục này chứa các ví dụ liên quan tới module
 	- Cách tìm kiếm nội dung của một phương thức:
+
 		Xét 2 dòng lệnh sau:
 			InternetStackHelper internet;
+
   			internet.Install (allNodes);
+
   		Để biết phương thức Install có nội dung gì, ta làm như sau:
+
   		+ Install() là phương thức của class InternetStackHelper, do đó ta sẽ tìm tới class này.
+
   			Tên class: InternetStackHelper (viết hoa chữ cái đầu của mỗi từ)
+  			
   		--> Tên file chứa định nghĩa của class: internet-stack-helper.cc (không viết hoa chữ cái đầu, giữa 2 từ có dấu gạch ngang)
   		+ Truy cập vào thư mục đường-dẫn-tới-NS-3/ns-allinone-3.27/ns-3.27/src, tìm kiếm file internet-stack-helper.cc, mở file ra và tìm kiếm class InternetStackHelper và phương thức Install của class này.
