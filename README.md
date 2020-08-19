@@ -11,7 +11,7 @@
 2. Bài tập C++: đọc nội dung từ file
    - Cho file input.txt, file này bao gồm nhiều dòng, mỗi dòng bao gồm nhiều số, mỗi số phân biệt bởi ký tự space (dấu cách).
    - Ví dụ ReadData.cc đọc nội dung file này theo từng dòng và hiển thị nội dung đọc được ra màn hình.
-   - Bài tập: đọc tất cả các số của file input.txt và lưu vào mảng 2 chiều std::vector< std::vector<int> >. Chi tiết yêu cầu và gợi ý ghi trong dòng 31 của file ReadData.cc
+   - Bài tập 1: đọc tất cả các số của file input.txt và lưu vào mảng 2 chiều std::vector< std::vector<int> >. Chi tiết yêu cầu và gợi ý ghi trong dòng 31 của file ReadData.cc
 3. Cài đặt và biên dịch NS-3
 	- Tải về phiên bản NS-3 tại địa chỉ: https://www.nsnam.org/releases/
 		Trong mục này, phiên bản sử dụng là ns-3.27
@@ -39,7 +39,7 @@
 
 	a. Mobility
 	   - Ví dụ square.cc mô phỏng một node di chuyển theo hình vuông, sinh viên đọc kỹ file này để biết cách đặt vị trí và vận tốc cho một node.	
-	   - Bài tập: viết chương trình mô phỏng 1 node di chuyển theo quỹ đạo được cho trong file trajectory.txt, tốc độ di chuyển là 10 m/s, gợi ý như sau:
+	   - Bài tập 2: viết chương trình mô phỏng 1 node di chuyển theo quỹ đạo được cho trong file trajectory.txt, tốc độ di chuyển là 10 m/s, gợi ý như sau:
 	   	 + Trong file trajectory.txt, mỗi dòng bao gồm 2 số, tương ứng với tọa độ x, y. Các tọa độ này được đọc và lưu vào mảng 2 chiều giống như ví dụ C++ bên trên. Node sẽ di chuyển lần lượt tới các vị trí này cho tới khi đi hết các điểm.
 	   - Trực quan hóa bằng NetAnim: 
 	   		+ NetAnim là công cụ giúp ta quan sát quá trình mô phỏng, được tích hợp sẵn trong NS-3
@@ -56,9 +56,9 @@
 	   		+ Nạp file square.xml và bấm nút Play để quan sát quá trình mô phỏng.
 	b. Communication
 	   - Ví dụ UAV_sensor.cc: mô phỏng thu thập dữ liệu trong mạng cảm biến không dây. File này bao gồm cách thiết lập truyền thông WIFI cho các nút mạng, cách gửi và nhận gói tin. Kịch bản mô phỏng bao gồm một UAV (Unmanned aircraft vehicle - máy bay không người lái) đứng yên, mỗi nút cảm biến (sensor) gửi 1 gói tin cho UAV nhờ định tuyến đa chặng OLSR, nội dung gói tin bao gồm id và tọa độ của sensor.
-	   - Bài tập: hoàn thành yêu cầu được ghi trong dòng 45 của file UAV_sensor.cc 
+	   - Bài tập 3: hoàn thành yêu cầu được ghi trong dòng 45 của file UAV_sensor.cc 
 	c. Mobility + Communication:
-	   - Bài tập: chỉnh sửa file UAV_sensor.cc như sau
+	   - Bài tập 4: chỉnh sửa file UAV_sensor.cc như sau
 	   		+ Bỏ giao thức định tuyến OLSR trong file UAV_sensor.cc bằng cách xóa dòng 212 đến 217 và dòng 221 
 	   		+ Cho UAV di chuyển tới vị trí của từng sensor để thực hiện việc thu thập dữ liệu. Khi UAV đi đến vị trí của một sensor thì sensor này sẽ gửi 1 gói tin cho UAV (coi như sensor biết sự có mặt của UAV), nội dung gói tin bao gồm id và tọa độ của sensor. UAV làm như vậy cho đến khi thu thập dữ liệu của tất cả sensor.
 5. Lưu ý khi sử dụng NS-3

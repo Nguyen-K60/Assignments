@@ -37,16 +37,17 @@ void ReceivePacket (Ptr<Socket> socket)
   packet->CopyData(buffer, size); // copy nội dung gói tin vào buffer
   std::string str = std::string((char*)buffer);// chuyến sang kiểu string để tiện cho việc đọc nội dung
   // đọc nội dung gói tin
+  // 3 ký tự đầu biểu diễn id nút gửi
   // 4 ký tự đầu biểu diễn x
   // 4 ký tự tiếp theo biêủ diễn y
   // 4 ký tự cuối biểu diễn z
-  int id = std::stoi(str.substr(0, 3)); // đọc id nút gửi
-  NS_LOG_UNCOND ("Received one packet from node "<<id);
-  // hoàn thành 3 lệnh dưới đây để đọc giá trị của x, y, z được lưu trong biến str, sau đó hiển thị giá trị này ra màn hình
+  NS_LOG_UNCOND ("Received one packet: "<<str);
+  // hoàn thành 4 lệnh dưới đây để đọc giá trị của id nút gửi, x, y, z từ biến str, sau đó hiển thị giá trị này ra màn hình
+  // int id = ;
   // int x = ;
   // int y = ;
   // int z = ;
-  //std::cout<<"x = "<<x<<", y = "<<", z = "<<z<<std::endl;
+  //std::cout<<"id = "<<id<<", x = "<<x<<", y = "<<", z = "<<z<<std::endl;
   
 }
 // gửi id và vị trí hiện tại cho nút đích
@@ -63,7 +64,8 @@ void GenerateTraffic (Ptr<Socket> socket, uint32_t pktSize,
     int z = (int)pos.z;
     std::ostringstream message;
     // để bên nhận đọc được nội dung, cần định dạng gói tin
-    // 4 ký tự đầu biểu diễn toạ độ x
+    // 3 ký tự đầu biểu diễn id nút gửi
+    // 4 ký tự tiếp biểu diễn toạ độ x
     // 4 ký tự tiếp theo biểu diễn toạ độ y
     // 4 ký tự cuối biểu diễn tọa độ z
     if(id < 10)
@@ -137,7 +139,6 @@ void GenerateTraffic (Ptr<Socket> socket, uint32_t pktSize,
   }
 }
 
-
 int main (int argc, char *argv[])
 {
   double distance = 500;  // m
@@ -171,7 +172,7 @@ int main (int argc, char *argv[])
   Ptr<Node> UAV = CreateObject<Node>();
   mobility.SetMobilityModel ("ns3::ConstantVelocityMobilityModel"); // vận tốc cố định
   mobility.Install(UAV);
-  UAV->GetObject<MobilityModel>()->SetPosition(Vector(2500, 0, 100)); // đặt vị trí cho UAV ở độ cao 100 m
+  UAV->GetObject<MobilityModel>()->SetPosition(Vector(2500, 0, 100));
 
   NodeContainer allNodes(sensor, UAV);
   // thiết lập WIFI cho các nút, tạm thời không cần đọc quá kỹ về phần này
@@ -206,7 +207,6 @@ int main (int argc, char *argv[])
   // adhoc tức là các nút trong mạng có vai trò bình đẳng, trao đổi trực tiếp với nhau, không cần thông qua nút trung gian
   wifiMac.SetType ("ns3::AdhocWifiMac");
   NetDeviceContainer devices = wifi.Install (wifiPhy, wifiMac, allNodes);
-
   // thiết lập giao thức định tuyến OLSR, tạm thời không quan tâm đến hoạt động của giao thức này
   // Enable OLSR
   OlsrHelper olsr;
