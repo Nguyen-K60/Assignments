@@ -1,6 +1,6 @@
 Đây là bài tập dành cho sinh viên làm quen với C++ và phần mềm NS-3, bài tập về C++ làm trước.
 1. Lập trình C++ trên Ubuntu:
-   - Mở termnal bằng tổ hợp phím Ctrl+Alt+t và chạy lệnh sau để cài đặt cái gói cần thiết:
+   - Mở terminal bằng tổ hợp phím Ctrl+Alt+t và chạy lệnh sau để cài đặt các gói cần thiết:
 
 		sudo apt install build-essential g++
    - Biên dịch file mã nguồn:
@@ -30,7 +30,7 @@
 		./waf configure --disable-tests --disable-examples --disable-python
 
 		./waf
-	- Các file chương trình NS-3 cần được đặt tại thư mục thư-mục-chứa-waf/scratch
+	- Các file chương trình NS-3 cần được đặt tại thư-mục-chứa-waf/scratch
 	- Cách chạy chương trình
 
 		./waf --run scratch/tên-file-không-có-phần-mở-rộng
@@ -54,17 +54,20 @@
 
 	a. Mobility
 
-	   - Ví dụ square.cc mô phỏng một node di chuyển theo hình vuông, sinh viên đọc kỹ file này để biết cách đặt vị trí và vận tốc cho một node.
+	   - Ví dụ square.cc mô phỏng một node di chuyển theo hình vuông.
+	    Sinh viên đọc kỹ file này để biết cách đặt vị trí và vận tốc cho một node.
 
 	   - Bài tập 2: viết chương trình mô phỏng 1 node di chuyển theo quỹ đạo được cho trong file trajectory.txt, tốc độ di chuyển là 10 m/s, gợi ý như sau:
 
-	   	 + Trong file trajectory.txt, mỗi dòng bao gồm 2 số, tương ứng với tọa độ x, y. Các tọa độ này được đọc và lưu vào mảng 2 chiều giống như ví dụ C++ bên trên. Node sẽ di chuyển lần lượt tới các vị trí này cho tới khi đi hết các điểm.
+	   	 + Trong file trajectory.txt, mỗi dòng bao gồm 2 số, tương ứng với tọa độ x, y.
+	   	  Các tọa độ này được đọc và lưu vào mảng 2 chiều giống như ví dụ C++ bên trên. 
+	   	  Node sẽ di chuyển lần lượt tới các vị trí này cho tới khi đi hết các điểm.
 
 	   - Trực quan hóa bằng NetAnim: 
 
 	   		+ NetAnim là công cụ giúp ta quan sát quá trình mô phỏng, được tích hợp sẵn trong NS-3
 
-	   		+ Cách cài đặt NetAnim như hướng dẫn tại địa chỉ: https://www.nsnam.org/wiki/NetAnim_3.108
+	   		+ Cách cài đặt NetAnim có tại địa chỉ: https://www.nsnam.org/wiki/NetAnim_3.108
 
 	   			Mở terminal và chạy các lệnh sau: (thay 3.27 bằng phiên bản phù hợp)
 
@@ -84,11 +87,15 @@
 
 	   		+ Sau khi chạy xong file square.cc, file square.xml sẽ được tạo ra tại thư mục đường-dẫn-tới-NS-3/ns-allinone-3.27/ns-3.27
 
-	   		+ Nạp file square.xml và bấm nút Play để quan sát quá trình mô phỏng.
+	   		+ Nạp file square.xml cho NetAnim và bấm nút Play để quan sát quá trình mô phỏng.
 
 	b. Communication
 
-	   - Ví dụ UAV_sensor.cc: mô phỏng thu thập dữ liệu trong mạng cảm biến không dây. File này bao gồm cách thiết lập truyền thông WIFI cho các nút mạng, cách gửi và nhận gói tin. Kịch bản mô phỏng bao gồm một UAV (Unmanned aircraft vehicle - máy bay không người lái) đứng yên, mỗi nút cảm biến (sensor) gửi 1 gói tin cho UAV nhờ định tuyến đa chặng OLSR, nội dung gói tin bao gồm id và tọa độ của sensor.
+	   - Ví dụ UAV_sensor.cc: mô phỏng thu thập dữ liệu trong mạng cảm biến không dây. 
+	   File này bao gồm cách thiết lập truyền thông WIFI cho các nút mạng, cách gửi và nhận gói tin. 
+	   Kịch bản mô phỏng bao gồm một UAV (Unmanned aircraft vehicle - máy bay không người lái) đứng yên
+	   Mỗi nút cảm biến (sensor) gửi 1 gói tin cho UAV nhờ định tuyến đa chặng OLSR
+	   Nội dung gói tin bao gồm id và tọa độ của sensor.
 
 	   - Bài tập 3: hoàn thành yêu cầu được ghi trong dòng 45 của file UAV_sensor.cc 
 
@@ -98,7 +105,9 @@
 
 	   		+ Bỏ giao thức định tuyến OLSR trong file UAV_sensor.cc bằng cách xóa dòng 212 đến 217 và dòng 221 
 
-	   		+ Cho UAV di chuyển tới vị trí của từng sensor để thực hiện việc thu thập dữ liệu. Khi UAV đi đến vị trí của một sensor thì sensor này sẽ gửi 1 gói tin cho UAV (coi như sensor biết sự có mặt của UAV), nội dung gói tin bao gồm id và tọa độ của sensor. UAV làm như vậy cho đến khi thu thập dữ liệu của tất cả sensor.
+	   		+ Cho UAV di chuyển tới vị trí của từng sensor để thực hiện việc thu thập dữ liệu. 
+	   		Khi UAV đi đến vị trí của một sensor thì sensor này sẽ gửi 1 gói tin cho UAV (coi như sensor biết sự có mặt của UAV)
+	   		Nội dung gói tin bao gồm id và tọa độ của sensor. UAV làm như vậy cho đến khi thu thập dữ liệu của tất cả sensor.
 
 5. Lưu ý khi sử dụng NS-3
 	- Tất cả mã nguồn của các module nằm tại thư mục đường-dẫn-tới-NS-3/ns-allinone-3.27/ns-3.27/src
@@ -109,11 +118,12 @@
 	- Cách tìm kiếm nội dung của một phương thức:
 
 		Xét 2 dòng lệnh sau:
+
 			InternetStackHelper internet;
 
   			internet.Install (allNodes);
 
-  		Để biết phương thức Install có nội dung gì, ta làm như sau:
+  		Để biết phương thức Install() có nội dung gì, ta làm như sau:
 
   		+ Install() là phương thức của class InternetStackHelper, do đó ta sẽ tìm tới class này.
 
