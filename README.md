@@ -57,11 +57,14 @@
 	   - Ví dụ square.cc mô phỏng một node di chuyển theo hình vuông.
 	    Sinh viên đọc kỹ file này để biết cách đặt vị trí và vận tốc cho một node.
 
+	   - Ví dụ follow_waypoints.cc: một node đi theo quỹ đạo định trước.
+
 	   - Bài tập 2: viết chương trình mô phỏng 1 node di chuyển theo quỹ đạo được cho trong file trajectory.txt, tốc độ di chuyển là 10 m/s, gợi ý như sau:
 
 	   	 + Trong file trajectory.txt, mỗi dòng bao gồm 2 số, tương ứng với tọa độ x, y.
 	   	  Các tọa độ này được đọc và lưu vào mảng 2 chiều giống như ví dụ C++ bên trên. 
 	   	  Node sẽ di chuyển lần lượt tới các vị trí này cho tới khi đi hết các điểm.
+	   	  Có thể sử dụng WaypointMobilityModel như ví dụ follow_waypoints.cc
 
 	   - Trực quan hóa bằng NetAnim: 
 
