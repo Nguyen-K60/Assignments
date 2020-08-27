@@ -23,7 +23,7 @@ void SetVelocity(Ptr<Node> node, Vector vel)
 // lấy vận tốc
 Vector GetVelocity(Ptr<Node> node)
 {
-  node -> GetObject<ConstantVelocityMobilityModel>()->GetVelocity();
+  return node -> GetObject<ConstantVelocityMobilityModel>()->GetVelocity();
 }
 //Kết thúc các hàm về tọa độ và vận tốc
 
