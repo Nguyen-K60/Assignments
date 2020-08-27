@@ -245,7 +245,7 @@ int main (int argc, char *argv[])
   }
 
   // Give OLSR time to converge-- 30 seconds, perhaps
-  for(int i = 0; i < numSensors; i++)
+  for(int i = 0; i < (int)numSensors; i++)
   {
     Simulator::Schedule (Seconds (30.0 + i*0.3), &GenerateTraffic,
                        source[i], packetSize, numPackets, interPacketInterval);
