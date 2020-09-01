@@ -42,6 +42,12 @@
 	- Tổng quan về các module: https://www.nsnam.org/docs/release/3.31/models/singlehtml/index.html
 
 		Chú ý mục: Internet Models (IP, TCP, Routing, UDP, Internet Applications)   
+
+	- Quy tắc viết code trong NS-3: https://www.nsnam.org/develop/contributing-code/coding-style/
+
+	- Group ns-3-users để đặt câu hỏi khi có thắc mắc: https://groups.google.com/g/ns-3-users 
+
+	- Hướng dẫn đặt câu hỏi trong group ns-3-users: https://www.nsnam.org/wiki/Ns-3-users-guidelines-for-posting 
 	- Slide mạng máy tính: https://sites.google.com/site/setnguyenhuuthanh/home/mang-may-tinh
 4. Bài tập NS-3
 
